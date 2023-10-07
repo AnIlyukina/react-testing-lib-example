@@ -1,10 +1,15 @@
-import { render } from '@testing-library/react';
+import { screen, fireEvent } from '@testing-library/react';
 import Counter from "./Counter";
+import {renderWithRedux} from "../../test/helpers/renderWithRedux";
 
 describe('Counter test', () => {
     test('Test router', async () => {
-        const { getByTestId } = render(<Counter/>)
-        const incrementBtn = getByTestId('increment-btn')
-        expect(getByTestId('value-title')).toHaveTextContent('0')
+        renderWithRedux(
+            <Counter/>
+        )
+        const incrementBtn = screen.getByTestId('increment-btn')
+        expect(screen.getByTestId('counter-value')).toHaveTextContent('0')
+        fireEvent.click(incrementBtn)
+        expect(screen.getByTestId('counter-value')).toHaveTextContent('1')
     })
 })

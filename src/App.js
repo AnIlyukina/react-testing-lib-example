@@ -7,7 +7,6 @@ function App() {
     const [data, setData] = useState(null);
     const [toggle, setToggle] = useState(false);
     const [value, setValue] = useState('')
-
     const toggleClick = () => setToggle(prev => !prev);
 
     useEffect(() => {
@@ -16,19 +15,17 @@ function App() {
         }, 100)
     }, [])
 
-  return (
-    <div>
+    return (<div>
 
         <Navbar/>
-        <AppRouters />
+        <AppRouters/>
         {/*<p data-testid="value-elem">{ value }</p>*/}
         {/*{toggle && <div data-testid="toggle-div">toggle</div>}*/}
         {/*{data && <div style={{color: 'red'}}>data</div>}*/}
         {/*<h1>Hello world</h1>*/}
         {/*<button data-testid="toggle-btn" onClick={toggleClick}> Кнопка </button>*/}
         {/*<input type="text" placeholder='инпут value' onChange={e => setValue(e.target.value)} />*/}
-    </div>
-  );
+    </div>);
 }
 
 export default App;
